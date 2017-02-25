@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+<!--
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="map.js"></script>
+-->
+    </head>
+    
+    <body>
+        <h1>Erwin Middle School Wifi Map</h1>
+        <div id="map"></div>
+        <script>
+            //function that shows map at specified location
+      
+        
+//        var asheville = {lat: 35.6, lng: -82.55};
+//        var erwin = {lat:35.6, lng:-82.63};
+//       
+        
+            
+        
+        //************************   ************************  ************************ 
+        //************************************************************************************************    
+        var map;
+        function initMap() {
+            //constructor creates a new map - only center and zoom required.
+          map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 11,
+          center: {lat: 40.741359, lng: -73.9980244}
+        });
+        
+          var tribeca = {lat: 40.719526, lng: -74.0089934};
+          var marker = new google.maps.Marker({
+              position: tribeca,
+              map: map,
+              title: 'First Marker!'
+          });//end marker code
+            //make an infowindow which is different 
+            var infowindow = new google.maps.InfoWindow({
+               content: 'Hey! I\'m an infowindow!' 
+            });
+            //add event listener to open the infowindow after we click on it
+            marker.addListener('click', function() {
+                //here we pass the map it'll be on, and where to open with 
+                //with either a location or a marker (which has a location)
+                infowindow.open(map, marker);
+            });
+          
+      }//initMap()
+    </script>
+        
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_LU1gytLu1Z-VXx4bsvXF0l6mhrsVzXE&callback=initMap">
+    </script>
+    
+
+    </body>
+
+</html>

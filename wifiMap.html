@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
+<!--
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="map.js"></script>
+-->
+    </head>
+    
+    <body>
+        <h1>Erwin Middle School Wifi Map</h1>
+        <div id="map"></div>
+        <script>
+            //function that shows map at specified location
+      function initMap() {
+        
+        var asheville = {lat: 35.6, lng: -82.55};
+        var erwin = {lat:35.6, lng:-82.63};
+   
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 11,
+          center: asheville
+        });
+        
+          
+          //use an array of places and markers:
+          var locations = [
+              {title: 'Erwin Middle School', location: {lat:35.6, lng:-82.63}},
+              {title: 'Asheville', location: {lat:35.6, lng:-82.55}},
+              {title: 'other location', location: {lat:35.62, lng:-82.54}},
+              {title: 'another location', location: {lat:35.63, lng:-82.53}}
+          ]
+          
+          
+//        //using a 'lat-long-literal'; one spot at a time method:
+//        var marker0 = new google.maps.Marker({
+//            position: erwin,
+//            map: map,
+//            animation: google.maps.Animation.DROP,
+//            //animation: google.maps.Animation.BOUNCE,       
+//            title: "about where erwin middle school is"
+//        });  
+//        var marker1 = new google.maps.Marker({
+//          position: asheville, 
+//          map: map,
+//          title: 'about where asheville is'
+//        });
+//          
+//        var erwinInfoWindow = new google.maps.InfoWindow({
+//            content: 'Here is Erwin Middle School. Print out the wifi map at school and take it with you!'
+//        })//erwinInfoWindow
+//        //must create event listener called on marker object, then pass it the
+//        //map and marker to act on
+//        marker0.addListener('click', function() {
+//           erwinInfoWindow.open(map, marker0); 
+//        });//marker0.addListener()
+          
+      }//initMap()
+    </script>
+        
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_LU1gytLu1Z-VXx4bsvXF0l6mhrsVzXE&callback=initMap">
+    </script>
+    
+
+    </body>
+
+</html>
